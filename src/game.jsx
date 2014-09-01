@@ -1,29 +1,19 @@
 /** @jsx React.DOM */
 
 var Game = React.createClass({
-  getInitialState: function(){
-    return {playing: false,tiles:[]};
-  },
-  startGame: function(words){
+  getInitialState: ()=>{return {};},
+  startGame(words){
     this.setState({
-      tiles:_.shuffle(words.concat(words)),
-      playing:true,
-      seed:Math.random()
+      words:_.shuffle(words.concat(words)),
+      playing:true
     });
   },
-  endGame: function(){
+  endGame(){
     this.setState({playing:false});
   },
-  render: function() {
-    return (
-      <div>
-        <div className={this.state.playing ? "showing" : "hidden"}>
-          <Board endGame={this.endGame} tiles={this.state.tiles} max={this.state.tiles.length/2} key={this.state.seed}/>
-        </div>
-        <div className={this.state.playing ? "hidden" : "showing"}>
-          <Wordform startGame={this.startGame} />
-        </div>
-      </div>
-    );
+  render(){
+    return this.state.playing ? (
+      <Board endGame={this.endGame} words={this.state.words}/>
+    ) : ( <Wordform startGame={this.startGame} /> );
   }
 });

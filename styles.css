@@ -21,6 +21,7 @@
   position: absolute;
   overflow: hidden;
   border-radius: 5px;
+  backface-visibility:hidden;
 }
 .brick > .front {
   background-color: #AAA;
@@ -52,12 +53,12 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
-.brick.flipped.wrong > .back {
+.brick.wrong > .back {
   -webkit-animation-name: wronganim;
   -moz-animation-name: wronganim;
   animation-name: wronganim;
 }
-.brick.flipped.correct > .back {
+.brick.correct > .back {
   -webkit-animation-name: correctanim;
   -moz-animation-name: correctanim;
   animation-name: correctanim;
@@ -67,12 +68,12 @@
   -moz-transform: perspective(50px) rotateY(180deg) translate3d(0px, 0px, 2px);
   transform: perspective(50px) rotateY(180deg) translate3d(0px, 0px, 2px);
 }
-.brick.flipped > .front {
+.brick.correct > .front, .brick.wrong > .front, .brick.revealed > .front {
   -webkit-transform: perspective(50px) rotateY(-180deg) translate3d(0px, 0px, 2px);
   -moz-transform: perspective(50px) rotateY(-180deg) translate3d(0px, 0px, 2px);
   transform: perspective(50px) rotateY(-180deg) translate3d(0px, 0px, 2px);
 }
-.brick.flipped > .back {
+.brick.correct > .back, .brick.wrong > .back, .brick.revealed > .back {
   -webkit-transform: perspective(50px) rotateY(0deg) translate3d(0px, 0px, 1px);
   -moz-transform: perspective(50px) rotateY(0deg) translate3d(0px, 0px, 1px);
   transform: perspective(50px) rotateY(0deg) translate3d(0px, 0px, 1px);
