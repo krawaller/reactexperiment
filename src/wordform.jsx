@@ -13,7 +13,7 @@ var Wordform = React.createClass({
   },
   submitWords(e){
     var node = this.refs['wordfield'].getDOMNode(),
-        words = (node.value || '').trim().replace(/\W+/g,'' '').split('' '');
+        words = (node.value || '').trim().replace(/\W+/g,' ').split(' ');
     if (words.length <= 2) {
       this.setError(''Enter at least 3 words!'');
     } else if (words.length !== _.unique(words).length) {
