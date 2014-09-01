@@ -15,11 +15,11 @@ var Wordform = React.createClass({
     var node = this.refs['wordfield'].getDOMNode(),
         words = (node.value || '').trim().replace(/\W+/g,' ').split(' ');
     if (words.length <= 2) {
-      this.setError(''Enter at least 3 words!'');
+      this.setError('Enter at least 3 words!');
     } else if (words.length !== _.unique(words).length) {
-      this.setError(''Don't enter duplicate words!'');
+      this.setError('Don\'t enter duplicate words!');
     } else if (_.find(words,(w)=>w.length > 8)) {
-      this.setError(''Words should not be longer than 8 characters!'');
+      this.setError('Words should not be longer than 8 characters!');
     } else {
       this.props.startGame(words);
       node.value = '';
