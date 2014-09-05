@@ -33,6 +33,7 @@
 .brick {
   float: left;
   margin-right: 10px;
+  margin-bottom: 10px;
   width: 50px;
   height: 50px;
 }
